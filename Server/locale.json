@@ -1,0 +1,52 @@
+{
+    "de": {
+        "server_start_msg": "Server läuft auf",
+        "new_client_connection": "Neuer Client verbunden:",
+        "client_disconnect1": "Verbindung mit",
+        "client_disconnect2": "getrennt.",
+        "wrong_CMD": "Fehlerhafter Befehl.",
+        "handle_client_command_user": "Benutzer:",
+        "handle_client_command_address": "IP:",
+        "handle_client_command_cmd": "Befehl:"
+    },
+    "en": {
+        "server_start_msg": "Server running on",
+        "new_client_connection": "New client connected:",
+        "client_disconnect1": "Disconnected from",
+        "client_disconnect2": ".",
+        "wrong_CMD": "Invalid command.",
+        "handle_client_command_user": "User:",
+        "handle_client_command_address": "IP:",
+        "handle_client_command_cmd": "Command:"
+    },
+    "es": {
+        "server_start_msg": "Servidor ejecutándose en",
+        "new_client_connection": "Nuevo cliente conectado:",
+        "client_disconnect1": "Desconectado de",
+        "client_disconnect2": ".",
+        "wrong_CMD": "Comando inválido.",
+        "handle_client_command_user": "Usuario:",
+        "handle_client_command_address": "IP:",
+        "handle_client_command_cmd": "Comando:"
+    },
+    "nl": {
+        "server_start_msg": "Server draait op",
+        "new_client_connection": "Nieuwe client verbonden:",
+        "client_disconnect1": "Verbinding verbroken met",
+        "client_disconnect2": ".",
+        "wrong_CMD": "Ongeldige opdracht.",
+        "handle_client_command_user": "Gebruiker:",
+        "handle_client_command_address": "IP:",
+        "handle_client_command_cmd": "Opdracht:"
+    },
+    "fr": {
+        "server_start_msg": "Serveur en cours d'exécution sur",
+        "new_client_connection": "Nouveau client connecté :",
+        "client_disconnect1": "Déconnecté de",
+        "client_disconnect2": ".",
+        "wrong_CMD": "Commande invalide.",
+        "handle_client_command_user": "Utilisateur :",
+        "handle_client_command_address": "IP :",
+        "handle_client_command_cmd": "Commande :"
+    }
+}
