@@ -6,7 +6,7 @@ import threading
 HOST = "127.0.0.1"
 PORT = 13322
 
-def load_locale(Language : str = "de"):
+def load_locale(Language : str = "de")-> dict:
     """Load locale.json and saves it in global dictonary"""
     try:
         with open("locale.json", encoding="utf-8") as f:
@@ -18,7 +18,7 @@ def load_locale(Language : str = "de"):
             load_locale = json.load(f)
             return load_locale["en"]
 
-def start_server(host, port):
+def start_server(host, port)-> None:
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((host, port))
     server_socket.listen()
@@ -30,7 +30,7 @@ def start_server(host, port):
         client_handler = threading.Thread(target=handle_client, args=(client_socket, address))
         client_handler.start()
 
-def handle_client(client_socket, address):
+def handle_client(client_socket, address)-> None:
 
     print(f"{locale['new_client_connection']} {address[0]}:{address[1]}")
     # Create new client object and connect to the group list
@@ -60,7 +60,7 @@ def handle_client(client_socket, address):
     except Exception as e:
         print(e.with_traceback(None))   
 
-def handle_client_request(client: cl.Client, data: bytes):
+def handle_client_request(client: cl.Client, data: bytes)-> None:
     """Handle a message from one of the clients and check for Commands"""
     msg = data.decode('utf-8')
     # Check for commands first
@@ -87,7 +87,7 @@ def  handle_client_command(client: cl.Client, cmd: str):
         case _:
             client.socket.sendall(locale['wrong_CMD'].encode())
 
-def handle_client_message(client: cl.Client, msg:str):
+def handle_client_message(client: cl.Client, msg:str)-> None:
     """Handles all Chat Messages"""
     # Broadcast to everyone but the sender
     for user in cl.clients:
@@ -107,7 +107,7 @@ def check_client_alive(client: cl.Client) -> bool:
         remove_client(client)
         return False
 
-def remove_client(client: cl.Client):
+def remove_client(client: cl.Client)-> None:
     """Remove a client from the clients list"""
     try:
         print(f"{locale['client_disconnect1']} {client.username} | {client.address} {locale['client_disconnect2']}")
