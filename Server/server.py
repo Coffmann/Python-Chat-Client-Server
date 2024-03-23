@@ -9,12 +9,12 @@ PORT = 13322
 def load_locale(Language : str = "de"):
     """Load locale.json and saves it in global dictonary"""
     try:
-        with open("locale.json", encoding="utf-8") as f:
+        with open("./Server/locale.json", encoding="utf-8") as f:
             load_locale = json.load(f)
             return load_locale[Language]
     except:
         print("locale not found, loading english...")
-        with open("locale.json", encoding="utf-8") as f:
+        with open("./Server/locale.json", encoding="utf-8") as f:
             load_locale = json.load(f)
             return load_locale["en"]
 
@@ -36,8 +36,9 @@ def handle_client(client_socket, address):
     # Create new client object and connect to the group list
     try:
         username = client_socket.recv(1024).decode('utf-8')
+        client = None
         for c in cl.clients:
-            if(c.address[0] == address[0]):
+            if(c.address == address):
                 c.username = username
                 c.socket = client_socket
                 c.address = address
@@ -71,12 +72,7 @@ def handle_client_request(client: cl.Client, data: bytes):
 
 def  handle_client_command(client: cl.Client, cmd: str):
     """Handles all known commands"""
-    print(f"{locale['handle_client_command_user']} 
-          {client.username}, 
-          {locale['handle_client_command_address']} 
-          {client.address}, 
-          {locale['handle_client_command_cmd']} 
-          {cmd}")
+    print(f"{locale['handle_client_command_user']} {client.username}, {locale['handle_client_command_address']} {client.address}, {locale['handle_client_command_cmd']} {cmd}")
     command = cmd.split(" ")[0].split("/")[1].strip().lower()
     parameters = cmd.split(" ",2)[1:]
     match (command):
@@ -92,8 +88,11 @@ def handle_client_message(client: cl.Client, msg:str):
     # Broadcast to everyone but the sender
     for user in cl.clients:
         if user != client:
-            if(check_client_alive(user)):
+            #if(check_client_alive(user)):
+            try:
                 user.socket.sendall((client.username + ": " + msg).encode())
+            except:
+                check_client_alive(user)
 
 def check_client_alive(client: cl.Client) -> bool:
     try:
