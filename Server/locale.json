@@ -48,5 +48,15 @@
         "handle_client_command_user": "Utilisateur :",
         "handle_client_command_address": "IP :",
         "handle_client_command_cmd": "Commande :"
+    },
+    "pt": {
+        "server_start_msg": "Servidor em execução",
+        "new_client_connection": "Novo cliente conectado:",
+        "client_disconnect1": "Desconectado de",
+        "client_disconnect2": ".",
+        "wrong_CMD": "Comando inválido.",
+        "handle_client_command_user": "Usuário:",
+        "handle_client_command_address": "IP:",
+        "handle_client_command_cmd": "Comando:"
     }
 }

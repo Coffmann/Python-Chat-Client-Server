@@ -119,6 +119,6 @@ def remove_client(client: cl.Client)-> None:
 
 
 if __name__ == "__main__":
-    language = input("Please  enter your preferred Language [de/en/es/fr/nl]: ")
+    language = input("Please  enter your preferred Language [de/en/es/fr/nl/pt]: ")
     locale = load_locale(language.lower()) #  Load german locale by default
     start_server(HOST, PORT) # Start Server on given host and port and wait for connections
